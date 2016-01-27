@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="CENTER" maxHeight="500.0" maxWidth="800.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerFXML">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox alignment="CENTER" maxWidth="200.0" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <Label text="Angle:">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin></Label>
+                  <Text fx:id="textAngle" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+               </children>
+            </HBox>
+            <Slider fx:id="sliderAngle" layoutX="10.0" layoutY="211.0" onScrollFinished="#setTextAngleWtihSliderValue" onScrollStarted="#rotateImageView" prefHeight="14.0" prefWidth="170.0">
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding></Slider>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <Label text="Transparence:">
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding></Label>
+                  <TextField fx:id="textTransparence" editable="false" prefHeight="25.0" prefWidth="40.0" />
+               </children>
+            </HBox>
+            <Slider fx:id="sliderTransparence" onScrollFinished="#setTextTransparenceWtihSliderValue">
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding></Slider>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="249.0" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <CheckBox mnemonicParsing="false" text="Effet : Box Blur" />
+               </children>
+            </HBox>
+            <GridPane alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Hauteur">
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding></Label>
+                  <Label text="Largeur" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding></Label>
+                  <Label text="Itérations" GridPane.rowIndex="2">
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding></Label>
+                  <Spinner fx:id="spinnerHigth" onMouseReleased="#setEffetOnImage" onScrollFinished="#setEffetOnImage" prefHeight="31.0" prefWidth="90.0" GridPane.columnIndex="1" />
+                  <Spinner fx:id="spinnerWidth" onMouseReleased="#setEffetOnImage" onScrollFinished="#setEffetOnImage" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Spinner fx:id="spinnerIteration" onMouseReleased="#setEffetOnImage" onScrollFinished="#setEffetOnImage" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <HBox alignment="CENTER" prefHeight="66.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Reset" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Quitter" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+         <children>
+              <fx:include fx:id="imagetoModified" source="DraggableImage.fxml" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </Pane>
+   </children>
+</GridPane>
